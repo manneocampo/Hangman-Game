@@ -3,3 +3,4 @@ var words = ["Hermione", "Harry", "Ron", "Snape", "Draco","Dumbledore","Voldemor
 
 //Making some test logs.
 console.log("First statement");
+console.log(words[11]);
