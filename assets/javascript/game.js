@@ -1,4 +1,4 @@
-
+console.log(words);
 /*Program needs to do: 
 1. pick a random word. 
 2. Take the player's guess. 
@@ -31,33 +31,28 @@ Else {
 Congratulate player on guessing the word 
 */
 
-
-
-
 //Word selector array 
 var words = ["hermione", "harry", "ron", "snape", "draco","dumbledore","voldemort", "muggles", "horcrux", "elder wand", "alohomora", "avada kedavra"];
+console.log(words);
+
 
 var word = words[Math.floor(Math.random()*words.length)];
 
+
+
 //creating answer array for blanks
-var answerArray = [];
+var answer = "";
 
 for (var i=0; i<word.length; i++){
-	answerArray[i]="_";
+	answer[i]+="_";
 }
 //keeps track of how many letters are left to be guessed
 var remainingLetters=word.length;
 
-//Coding game loop 
-while (remainingLetters > 0) {
-	//Game code goes here 
-	//show the player their progress
-	//take input from the player
-	//update the answerArray and remainingLetters for every correct guess
-}
 
 //Trying to use to call the currentWord and then should do a fn to document.create...something method
-document.getElementById('currentWord')
+document.getElementById('currentWord').innerHTML="word";
+console.log('currentWord');
 
 //Making some test logs.
 console.log("Hermione");
@@ -76,19 +71,20 @@ var guess;
 var guesses = [];
 
 //Guesses remaining 
-var guessesRemaining =10;
+var guessesRemaining;
 
 //Win Points counter 
-var winPoints = 0; 
+var winPoints; 
 
 //When any letter is clicked 
 // var lettersGuessed = document.getElementById("lettersGuessed"); 
 
-// This function is run whenever the user presses a key.
-document.onkeypress = function(event){
+//This function is run whenever the user presses a key.
+document.onkeyup = function(guess){
 
 // Determines which key was pressed.	
-	var lettersGuessed = event.key; 
+	var guess = event.key;
+	console.log(guess) 
 };
 
 
