@@ -1,15 +1,63 @@
 
+/*Program needs to do: 
+1. pick a random word. 
+2. Take the player's guess. 
+3. Quit the game if the player wants to. 
+4. Check that the player's guess is a valid letter. 
+5. Keep track of letters the player has guessed. 
+6. Show the player their progress. 
+7. Finish when the player has guessed the word. 
+8. After player wins/loses the game should automatically choose another word and make the user play it. 
+
+2-6 need to happen over and over so those should be loops. 
+*/
+
+/*Pseudocode the game:
+Pick a random word 
+While the word has not been guessed {
+	Show the player their current progress 
+	Get a guess from the player 
+If the player wants to quit the game {
+Quit the game 
+}
+Else if the guess is not a single letter {
+	Tell the player to pick a single letter
+}
+Else {
+	If the guess is in the word {
+	Update the player's progress with the guess
+	}
+}
+Congratulate player on guessing the word 
+*/
+
+
+
+
 //Word selector array 
 var words = ["hermione", "harry", "ron", "snape", "draco","dumbledore","voldemort", "muggles", "horcrux", "elder wand", "alohomora", "avada kedavra"];
 
 var word = words[Math.floor(Math.random()*words.length)];
 
+//creating answer array for blanks
 var answerArray = [];
 
 for (var i=0; i<word.length; i++){
 	answerArray[i]="_";
 }
-var remainingLetters=words.length;
+//keeps track of how many letters are left to be guessed
+var remainingLetters=word.length;
+
+//Coding game loop 
+while (remainingLetters > 0) {
+	//Game code goes here 
+	//show the player their progress
+	//take input from the player
+	//update the answerArray and remainingLetters for every correct guess
+}
+
+//Trying to use to call the currentWord and then should do a fn to document.create...something method
+document.getElementById('currentWord')
 
 //Making some test logs.
 console.log("Hermione");
