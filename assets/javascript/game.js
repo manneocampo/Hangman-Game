@@ -41,17 +41,17 @@ var word = words[Math.floor(Math.random()*words.length)];
 
 
 //creating answer array for blanks
-var answer = "";
+var answer = [];
 
 for (var i=0; i<word.length; i++){
-	answer +="-";
+	answer.push("-");
 }
 //keeps track of how many letters are left to be guessed
 var remainingLetters=word.length;
 
 
 //Trying to use document.getElementByID to call the currentWord and then should do a fn to document.create...something method
-document.getElementById('currentWord').innerHTML= answer;
+document.getElementById('currentWord').innerHTML= answer.join("");
 console.log('currentWord');
 
 //Making some test logs.
@@ -80,12 +80,23 @@ var winPoints;
 // var lettersGuessed = document.getElementById("lettersGuessed"); 
 
 //This function is run whenever the user presses a key.
-document.onkeyup = function(guess){
+document.onkeyup = function(event){
+	 answer[0]="e";
+	 console.log("answer:", answer);
+	 document.getElementById('currentWord').innerHTML=answer.join("");
 
 // Determines which key was pressed.	
 	var guess = event.key;
-	console.log(guess) 
-};
+	console.log(guess); 
+/*still need to figure this part out...trying to replace 
+the spots in the word with the guesses that are correct*/
+
+if (word.indexOf(event.key)!==1) {
+ 		console.log("answer:", answer);
+ 	}
+ };
+
+
 
 
 
