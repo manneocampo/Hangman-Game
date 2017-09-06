@@ -2,3 +2,8 @@ div {
 	border: 1px solid black;
 }
 
+
+#currentWord {
+	letter-spacing: 20px;
+	font-size: 50px;
+}

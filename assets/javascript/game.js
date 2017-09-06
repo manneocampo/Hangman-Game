@@ -44,14 +44,14 @@ var word = words[Math.floor(Math.random()*words.length)];
 var answer = "";
 
 for (var i=0; i<word.length; i++){
-	answer[i]+="_";
+	answer +="-";
 }
 //keeps track of how many letters are left to be guessed
 var remainingLetters=word.length;
 
 
-//Trying to use to call the currentWord and then should do a fn to document.create...something method
-document.getElementById('currentWord').innerHTML="word";
+//Trying to use document.getElementByID to call the currentWord and then should do a fn to document.create...something method
+document.getElementById('currentWord').innerHTML= answer;
 console.log('currentWord');
 
 //Making some test logs.
