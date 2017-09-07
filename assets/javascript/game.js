@@ -38,7 +38,7 @@ console.log(words);
 
 var word = words[Math.floor(Math.random()*words.length)];
 
-
+console.log('word: ', word);
 
 //creating answer array for blanks
 var answer = [];
@@ -55,7 +55,6 @@ document.getElementById('currentWord').innerHTML= answer.join("");
 console.log('currentWord');
 
 //Making some test logs.
-console.log("Hermione");
 console.log(words[11]);
 
 //Looping through each item in the array to create current word 
@@ -63,6 +62,7 @@ console.log(words[11]);
 for (var i=0; i < words.length; i++) {
 	console.log("Word Selected is..." + words[i]);
 }
+//might be able to take this and place inside the documnet.onkeyup
 
 //guess
 var guess; 
@@ -81,24 +81,23 @@ var winPoints;
 
 //This function is run whenever the user presses a key.
 document.onkeyup = function(event){
-	 answer[0]="e";
-	 console.log("answer:", answer);
-	 document.getElementById('currentWord').innerHTML=answer.join("");
 
-// Determines which key was pressed.	
-	var guess = event.key;
-	console.log(guess); 
-/*still need to figure this part out...trying to replace 
-the spots in the word with the guesses that are correct*/
 
 /* word.indexOf(event.key)!==1 means that the event.key (guess) is in 
 the word, it does not equal -1. thus it is in the word
 and indexOf should give me the index of the letter guessed?
 Not sure how to help computer figue out where in the answer 
 to replace the letters*/
-if (word.indexOf(event.key)!==1) {
- 		answer[i=0, i< words.length,i++] = event.key;
- 		console.log(word);
+if (word.indexOf(event.key)!==-1) {
+	//answer[/*a number that represents where the event key is*/]
+ 	//answer.indexOf(event.key) is the index of the key	
+ 	//write a for loop to find where in the answer and taking out var index of guess
+ 		// var indexOfGuess = word.indexOf(event.key);
+ 		answer[i] = event.key;
+ 		console.log('answer', answer);
+ 		document.getElementById('currentWord').innerHTML= answer.join("");
+
+ 		console.log('fired');
  		
  	}
  };
