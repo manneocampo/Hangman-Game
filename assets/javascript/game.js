@@ -91,8 +91,15 @@ document.onkeyup = function(event){
 /*still need to figure this part out...trying to replace 
 the spots in the word with the guesses that are correct*/
 
+/* word.indexOf(event.key)!==1 means that the event.key (guess) is in 
+the word, it does not equal -1. thus it is in the word
+and indexOf should give me the index of the letter guessed?
+Not sure how to help computer figue out where in the answer 
+to replace the letters*/
 if (word.indexOf(event.key)!==1) {
- 		console.log("answer:", answer);
+ 		answer[i=0, i< words.length,i++] = event.key;
+ 		console.log(word);
+ 		
  	}
  };
 
