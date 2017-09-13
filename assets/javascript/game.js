@@ -59,14 +59,6 @@ document.getElementById('currentWord').innerHTML= answer.join("");
 // console.log("answer:", answer);
 
 
-//Looping through each item in the array to create current word 
-//and logging a message to the console. 
-// for (var i=0; i < words.length; i++) {
-// 	console.log("Word Selected is..." + words[i]);
-// }
-//might be able to take this and place inside the documnet.onkeyup
-
-
 //stored guesses 
 var guesses = [];
 
