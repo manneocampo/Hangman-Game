@@ -66,8 +66,6 @@ document.getElementById('currentWord').innerHTML= answer.join("");
 // }
 //might be able to take this and place inside the documnet.onkeyup
 
-//guess
-var guess; 
 
 //stored guesses 
 var guesses = [];
@@ -81,8 +79,7 @@ document.getElementById("guessesRemaining").innerHTML=guessesRemaining;
 var winPoints = 0;
 document.getElementById("winPoints").innerHTML=winPoints; 
 
-//When any letter is clicked 
-// var lettersGuessed = document.getElementById("lettersGuessed"); 
+var keepPlaying; 
 
 //This function is run whenever the user presses a key.
 document.onkeyup = function(event){
@@ -92,7 +89,7 @@ the word, it does not equal -1. thus it is in the word
 and indexOf should give me the index of the letter guessed?
 Not sure how to help computer figue out where in the answer 
 to replace the letters*/
-		if (word.indexOf(event.key) > -1) {
+	if (word.indexOf(event.key) > -1) {
 	//answer[/*a number that represents where the event key is*/]
  	//answer.indexOf(event.key) is the index of the key	
  	/*write a for loop with an if stmnt saying that it should
@@ -118,16 +115,17 @@ to replace the letters*/
 	 			guessesRemaining--;
 	 			console.log(guessesRemaining);
 	 			document.getElementById("guessesRemaining").innerHTML=guessesRemaining;
-	 		}
-	 		
-	 		// for(var j=0; j< guesses.length; j++) {
-	 			// if (event.key!== guesses[j]) {
-	 				// guesses[j]= event.key;
 	 			guesses.push(event.key);
 	 			document.getElementById("lettersGuessed").innerHTML=guesses;
-	 			// }	
-	 		// }	
-	 	}
+	 			if (guessesRemaining===0) {
+	 				keepPlaying = confirm("You lose: Want to try again?");
+	 					/*if(keepPlaying){
+							reset();
+	 					}*/
+	 			}
+	 		}	
+
+	}
 
 };
 
