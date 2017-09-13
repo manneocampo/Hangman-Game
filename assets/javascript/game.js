@@ -1,4 +1,4 @@
-console.log(words);
+// console.log(words);
 /*Program needs to do: 
 1. pick a random word. 
 2. Take the player's guess. 
@@ -33,7 +33,7 @@ Congratulate player on guessing the word
 
 //Word selector array 
 var words = ["hermione", "harry", "ron", "snape", "draco","dumbledore","voldemort", "muggles", "horcrux", "elder wand", "alohomora", "avada kedavra"];
-console.log(words);
+// console.log(words);
 
 
 var word = words[Math.floor(Math.random()*words.length)];
@@ -52,16 +52,14 @@ var remainingLetters=word.length;
 
 //Trying to use document.getElementByID to call the currentWord and then should do a fn to document.create...something method
 document.getElementById('currentWord').innerHTML= answer.join("");
-console.log('currentWord');
+// console.log("answer:", answer);
 
-//Making some test logs.
-console.log(words[11]);
 
 //Looping through each item in the array to create current word 
 //and logging a message to the console. 
-for (var i=0; i < words.length; i++) {
-	console.log("Word Selected is..." + words[i]);
-}
+// for (var i=0; i < words.length; i++) {
+// 	console.log("Word Selected is..." + words[i]);
+// }
 //might be able to take this and place inside the documnet.onkeyup
 
 //guess
@@ -71,10 +69,13 @@ var guess;
 var guesses = [];
 
 //Guesses remaining 
-var guessesRemaining;
+var guessesRemaining = 6;
+document.getElementById("guessesRemaining").innerHTML=guessesRemaining;
+
 
 //Win Points counter 
-var winPoints; 
+var winPoints = 0;
+document.getElementById("winPoints").innerHTML=winPoints; 
 
 //When any letter is clicked 
 // var lettersGuessed = document.getElementById("lettersGuessed"); 
@@ -82,25 +83,48 @@ var winPoints;
 //This function is run whenever the user presses a key.
 document.onkeyup = function(event){
 
-
 /* word.indexOf(event.key)!==1 means that the event.key (guess) is in 
 the word, it does not equal -1. thus it is in the word
 and indexOf should give me the index of the letter guessed?
 Not sure how to help computer figue out where in the answer 
 to replace the letters*/
-if (word.indexOf(event.key)!==-1) {
+		if (word.indexOf(event.key) > -1) {
 	//answer[/*a number that represents where the event key is*/]
  	//answer.indexOf(event.key) is the index of the key	
- 	//write a for loop to find where in the answer and taking out var index of guess
- 		// var indexOfGuess = word.indexOf(event.key);
- 		answer[i] = event.key;
- 		console.log('answer', answer);
- 		document.getElementById('currentWord').innerHTML= answer.join("");
+ 	/*write a for loop with an if stmnt saying that it should
+	check for the key pressed to be inside that word & if it is
+	then replace the answer variable starting at index 0 to the key pressed
+	*/
+ 	
+			for (var i = 0; i< word.length; i++) {
+	 			
+	 			if (event.key === word[i]) {
+	 				answer[i] = event.key;
+	 				console.log("answer:", answer);
+	 			}
+	 		}
+	 		if(answer.indexOf("-") === -1) {
+	 			winPoints++;
+	 			document.getElementById("winPoints").innerHTML=winPoints;
+	 		}
 
- 		console.log('fired');
- 		
- 	}
- };
+ 			document.getElementById("currentWord").innerHTML=answer.join("");	
+	 	}else {
+	 		if(guesses.indexOf(event.key)===-1) {
+	 			guessesRemaining--;
+	 			console.log(guessesRemaining);
+	 		}
+	 		document.getElementById("guessesRemaining").innerHTML=guessesRemaining;
+	 		// for(var j=0; j< guesses.length; j++) {
+	 			// if (event.key!== guesses[j]) {
+	 				// guesses[j]= event.key;
+	 			guesses.push(event.key);
+	 			document.getElementById("lettersGuessed").innerHTML=guesses;
+	 			// }	
+	 		// }	
+	 	}
+
+};
 
 
 
