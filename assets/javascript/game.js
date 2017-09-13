@@ -31,12 +31,12 @@ Else {
 Congratulate player on guessing the word 
 */
 
-//Word selector array 
+//Word selector array --can break into an array with objects so can add images to each object. But how?
 var words = ["hermione", "harry", "ron", "snape", "draco","dumbledore","voldemort", "muggles", "horcrux", "elder wand", "alohomora", "avada kedavra"];
 // console.log(words);
 
-
-var word = words[Math.floor(Math.random()*words.length)];
+var index = Math.floor(Math.random()*words.length);
+var word = words[index];
 
 console.log('word: ', word);
 
@@ -44,7 +44,11 @@ console.log('word: ', word);
 var answer = [];
 
 for (var i=0; i<word.length; i++){
-	answer.push("-");
+	if(word[i]===" ") {
+	answer.push(" ");
+	}else {
+		answer.push("-");
+	}
 }
 //keeps track of how many letters are left to be guessed
 var remainingLetters=word.length;
@@ -113,8 +117,9 @@ to replace the letters*/
 	 		if(guesses.indexOf(event.key)===-1) {
 	 			guessesRemaining--;
 	 			console.log(guessesRemaining);
+	 			document.getElementById("guessesRemaining").innerHTML=guessesRemaining;
 	 		}
-	 		document.getElementById("guessesRemaining").innerHTML=guessesRemaining;
+	 		
 	 		// for(var j=0; j< guesses.length; j++) {
 	 			// if (event.key!== guesses[j]) {
 	 				// guesses[j]= event.key;
