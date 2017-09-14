@@ -136,7 +136,10 @@ to replace the letters*/
 	}
 };
 
-
+/*using parameters i.e.setting var didWin inside the fn 
+is really helpful for calling it inside the fn with an if/else 
+and then saying true or false above when calling reset fn to follow
+if didWin and else didn't win  */
 function reset(didWin) {
 
 console.log(didWin);
