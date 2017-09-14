@@ -82,54 +82,56 @@ the word, it does not equal -1. thus it is in the word
 and indexOf should give me the index of the letter guessed?
 Not sure how to help computer figue out where in the answer 
 to replace the letters*/
-var letter = String.fromCharCode(event.keyCode).toLowerCase();
-console.log(letter);
+	if (event.keyCode >= 65 && event.keyCode <= 90) {
 
-if (letter) {
+		var letter = String.fromCharCode(event.keyCode).toLowerCase();
+		console.log(letter);
+
+		if (letter) {
 
 
-	if (word.indexOf(letter) > -1) {
-	//answer[/*a number that represents where the event key is*/]
- 	//answer.indexOf(event.key) is the index of the key	
- 	/*write a for loop with an if stmnt saying that it should
-	check for the key pressed to be inside that word & if it is
-	then replace the answer variable starting at index 0 to the key pressed
-	*/
- 	
-			for (var i = 0; i< word.length; i++) {
-	 			
-	 			if (letter === word[i]) {
-	 				answer[i] = letter;
-	 				document.getElementById("currentWord").innerHTML=answer.join("");
-	 				console.log("answer:", answer);
-	 			}
-	 		}
-	 		if(answer.indexOf("-") === -1) {
-	 			winPoints++;
-	 			document.getElementById("winPoints").innerHTML=winPoints;
-	 			 setTimeout(function(){ keepPlaying = confirm
-	 			 	("Congrats You Won: Do you want to keep playing? ");
-	 			 	if(keepPlaying){
-					reset();
-	 			 }}, 1000);	 
-	 		}
-
- 				
-	 	}else {
-	 		if(guesses.indexOf(letter)===-1) {
-	 			guessesRemaining--;
-	 			console.log(guessesRemaining);
-	 			document.getElementById("guessesRemaining").innerHTML=guessesRemaining;
-	 			guesses.push(letter);
-	 			document.getElementById("lettersGuessed").innerHTML=guesses;
-	 			if (guessesRemaining===0) {
-	 				keepPlaying = confirm("You lose: Want to try again?");
-	 					if(keepPlaying){
+			if (word.indexOf(letter) > -1) {
+			//answer[/*a number that represents where the event key is*/]
+		 	//answer.indexOf(event.key) is the index of the key	
+		 	/*write a for loop with an if stmnt saying that it should
+			check for the key pressed to be inside that word & if it is
+			then replace the answer variable starting at index 0 to the key pressed
+			*/
+		 	
+					for (var i = 0; i< word.length; i++) {
+			 			
+			 			if (letter === word[i]) {
+			 				answer[i] = letter;
+			 				document.getElementById("currentWord").innerHTML=answer.join("");
+			 				console.log("answer:", answer);
+			 			}
+			 		}
+			 		if(answer.indexOf("-") === -1) {
+			 			winPoints++;
+			 			document.getElementById("winPoints").innerHTML=winPoints;
+			 			 setTimeout(function(){ keepPlaying = confirm
+			 			 	("Congrats You Won: Do you want to keep playing? ");
+			 			 	if(keepPlaying){
 							reset();
-	 					}
-	 			}
-	 		}	
+			 			 }}, 1000);	 
+			 		}
 
+		 				
+			 	}else {
+			 		if(guesses.indexOf(letter)===-1) {
+			 			guessesRemaining--;
+			 			console.log(guessesRemaining);
+			 			document.getElementById("guessesRemaining").innerHTML=guessesRemaining;
+			 			guesses.push(letter);
+			 			document.getElementById("lettersGuessed").innerHTML=guesses;
+			 			if (guessesRemaining===0) {
+			 				keepPlaying = confirm("You lose: Want to try again?");
+			 					if(keepPlaying){
+									reset();
+			 					}
+			 			}
+			 		}	
+				}
 		}
 	}
 };
@@ -156,6 +158,7 @@ guesses = [];
 
 guessesRemaining = 6;
 document.getElementById("guessesRemaining").innerHTML=guessesRemaining;
+document.getElementById("lettersGuessed").innerHTML=guesses;
 
 }
 
