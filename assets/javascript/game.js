@@ -112,7 +112,7 @@ to replace the letters*/
 			 			 setTimeout(function(){ keepPlaying = confirm
 			 			 	("Congrats You Won: Do you want to keep playing? ");
 			 			 	if(keepPlaying){
-							reset();
+							reset(true);
 			 			 }}, 1000);	 
 			 		}
 
@@ -127,7 +127,7 @@ to replace the letters*/
 			 			if (guessesRemaining===0) {
 			 				keepPlaying = confirm("You lose: Want to try again?");
 			 					if(keepPlaying){
-									reset();
+									reset(false);
 			 					}
 			 			}
 			 		}	
@@ -137,7 +137,9 @@ to replace the letters*/
 };
 
 
-function reset() {
+function reset(didWin) {
+
+console.log(didWin);
 
 index = Math.floor(Math.random()*words.length);
 word = words[index];
@@ -154,6 +156,13 @@ for (var i=0; i<word.length; i++){
 	}
 }
 document.getElementById('currentWord').innerHTML= answer.join("");
+
+if (didWin) {
+	winPoints++;
+}else {winPoints = 0;
+document.getElementById("winPoints").innerHTML=winPoints;
+}
+
 guesses = [];
 
 guessesRemaining = 6;
