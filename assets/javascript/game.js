@@ -73,6 +73,7 @@ document.getElementById("winPoints").innerHTML=winPoints;
 
 var keepPlaying; 
 
+
 //This function is run whenever the user presses a key.
 document.onkeyup = function(event){
 
@@ -81,9 +82,13 @@ the word, it does not equal -1. thus it is in the word
 and indexOf should give me the index of the letter guessed?
 Not sure how to help computer figue out where in the answer 
 to replace the letters*/
+var letter = String.fromCharCode(event.keyCode).toLowerCase();
+console.log(letter);
+
+if (letter) {
 
 
-	if (word.indexOf(event.key) > -1) {
+	if (word.indexOf(letter) > -1) {
 	//answer[/*a number that represents where the event key is*/]
  	//answer.indexOf(event.key) is the index of the key	
  	/*write a for loop with an if stmnt saying that it should
@@ -93,8 +98,8 @@ to replace the letters*/
  	
 			for (var i = 0; i< word.length; i++) {
 	 			
-	 			if (event.key === word[i]) {
-	 				answer[i] = event.key;
+	 			if (letter === word[i]) {
+	 				answer[i] = letter;
 	 				document.getElementById("currentWord").innerHTML=answer.join("");
 	 				console.log("answer:", answer);
 	 			}
@@ -111,11 +116,11 @@ to replace the letters*/
 
  				
 	 	}else {
-	 		if(guesses.indexOf(event.key)===-1) {
+	 		if(guesses.indexOf(letter)===-1) {
 	 			guessesRemaining--;
 	 			console.log(guessesRemaining);
 	 			document.getElementById("guessesRemaining").innerHTML=guessesRemaining;
-	 			guesses.push(event.key);
+	 			guesses.push(letter);
 	 			document.getElementById("lettersGuessed").innerHTML=guesses;
 	 			if (guessesRemaining===0) {
 	 				keepPlaying = confirm("You lose: Want to try again?");
@@ -125,15 +130,17 @@ to replace the letters*/
 	 			}
 	 		}	
 
+		}
 	}
-
 };
+
 
 function reset() {
 
 index = Math.floor(Math.random()*words.length);
 word = words[index];
-console.log("answer:", answer);
+console.log("word:", word);
+
 
 answer = [];
 
