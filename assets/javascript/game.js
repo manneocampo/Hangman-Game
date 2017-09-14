@@ -81,6 +81,8 @@ the word, it does not equal -1. thus it is in the word
 and indexOf should give me the index of the letter guessed?
 Not sure how to help computer figue out where in the answer 
 to replace the letters*/
+
+
 	if (word.indexOf(event.key) > -1) {
 	//answer[/*a number that represents where the event key is*/]
  	//answer.indexOf(event.key) is the index of the key	
@@ -93,15 +95,21 @@ to replace the letters*/
 	 			
 	 			if (event.key === word[i]) {
 	 				answer[i] = event.key;
+	 				document.getElementById("currentWord").innerHTML=answer.join("");
 	 				console.log("answer:", answer);
 	 			}
 	 		}
 	 		if(answer.indexOf("-") === -1) {
 	 			winPoints++;
 	 			document.getElementById("winPoints").innerHTML=winPoints;
+	 			 setTimeout(function(){ keepPlaying = confirm
+	 			 	("Congrats You Won: Do you want to keep playing? ");
+	 			 	if(keepPlaying){
+					reset();
+	 			 }}, 1000);	 
 	 		}
 
- 			document.getElementById("currentWord").innerHTML=answer.join("");	
+ 				
 	 	}else {
 	 		if(guesses.indexOf(event.key)===-1) {
 	 			guessesRemaining--;
@@ -111,15 +119,38 @@ to replace the letters*/
 	 			document.getElementById("lettersGuessed").innerHTML=guesses;
 	 			if (guessesRemaining===0) {
 	 				keepPlaying = confirm("You lose: Want to try again?");
-	 					/*if(keepPlaying){
+	 					if(keepPlaying){
 							reset();
-	 					}*/
+	 					}
 	 			}
 	 		}	
 
 	}
 
 };
+
+function reset() {
+
+index = Math.floor(Math.random()*words.length);
+word = words[index];
+console.log("answer:", answer);
+
+answer = [];
+
+for (var i=0; i<word.length; i++){
+	if(word[i]===" ") {
+	answer.push(" ");
+	}else {
+		answer.push("-");
+	}
+}
+document.getElementById('currentWord').innerHTML= answer.join("");
+guesses = [];
+
+guessesRemaining = 6;
+document.getElementById("guessesRemaining").innerHTML=guessesRemaining;
+
+}
 
 
 
