@@ -74,6 +74,8 @@ document.getElementById("winPoints").innerHTML=winPoints;
 var keepPlaying; 
 
 
+
+
 //This function is run whenever the user presses a key.
 document.onkeyup = function(event){
 
@@ -106,14 +108,15 @@ to replace the letters*/
 			 				console.log("answer:", answer);
 			 			}
 			 		}
+			 		
 			 		if(answer.indexOf("-") === -1) {
+			 			setTimeout(function(){
 			 			winPoints++;
 			 			document.getElementById("winPoints").innerHTML=winPoints;
-			 			 setTimeout(function(){ keepPlaying = confirm
-			 			 	("Congrats You Won: Do you want to keep playing? ");
+			 			  keepPlaying = confirm("Congrats You Won: Do you want to keep playing? ");
 			 			 	if(keepPlaying){
 							reset(true);
-			 			 }}, 1000);	 
+			 			 }}, 2000);	 
 			 		}
 
 		 				
@@ -161,7 +164,6 @@ for (var i=0; i<word.length; i++){
 document.getElementById('currentWord').innerHTML= answer.join("");
 
 if (didWin) {
-	winPoints++;
 }else {winPoints = 0;
 document.getElementById("winPoints").innerHTML=winPoints;
 }
