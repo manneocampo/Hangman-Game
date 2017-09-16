@@ -46,7 +46,7 @@ var words = [
 	image:"assets/images/snape.jpg"
 }, 
 {	word:"draco",
-	image:"assets/images/harry.jpg"
+	image:"assets/images/draco.jpg"
 },
 {	word:"dumbledore",
 	image:"assets/images/harry.jpg"
@@ -191,6 +191,7 @@ console.log(didWin);
 
 index = Math.floor(Math.random()*words.length);
 word = words[index].word;
+image = words[index].image;
 console.log("word:", word);
 
 
@@ -215,7 +216,7 @@ guesses = [];
 guessesRemaining = 6;
 document.getElementById("guessesRemaining").innerHTML=guessesRemaining;
 document.getElementById("lettersGuessed").innerHTML=guesses;
-
+document.getElementById("myImg").src="assets/images/harrypotterlogo.png";
 }
 
 
