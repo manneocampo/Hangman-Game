@@ -2,13 +2,18 @@
 	border: 1px solid black;
 }*/
 
+
 #heading {
 	text-align: center;
-	font-family: 'BenchNine', serif;
-    font-size: 48px;
-	font-weight: bold;
+	font-family: 'Permanent Marker', serif;
+    font-size: 46px;
+
+	color: white;
 }
 
+.gametext {
+	color: #fff;
+}
 
 #currentWord {
 	letter-spacing: 20px;
