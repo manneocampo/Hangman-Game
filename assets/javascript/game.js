@@ -67,7 +67,7 @@ var words = [
 	image:"assets/images/alohomora.png"
 }, 
 {	word:"avada kedavra",
-	image:"assets/images/harry.jpg"
+	image:"assets/images/avadakedavra.jpg"
 }];
 // console.log(words);
 
