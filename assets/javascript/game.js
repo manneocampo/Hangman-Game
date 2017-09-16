@@ -32,11 +32,48 @@ Congratulate player on guessing the word
 */
 
 //Word selector array --can break into an array with objects so can add images to each object. But how?
-var words = ["hermione", "harry", "ron", "snape", "draco","dumbledore","voldemort", "muggles", "horcrux", "elder wand", "alohomora", "avada kedavra"];
+var words = [
+{	word:"hermione",
+	image: "assets/images/hermione.jpg",
+}, 
+{	word:"harry",
+	image:"assets/images/harry.jpg"
+}, 
+{	word:"ron",
+	image:"assets/images/ron.jpg"
+}, 
+{	word:"snape",
+	image:"assets/images/snape.jpg"
+}, 
+{	word:"draco",
+	image:"assets/images/harry.jpg"
+},
+{	word:"dumbledore",
+	image:"assets/images/harry.jpg"
+},
+{	word:"voldemort",
+	image:"assets/images/voldemort.gif"
+}, 
+{	word:"muggles",
+	image:"assets/images/harry.jpg"
+}, 
+{	word:"horcrux",
+	image:"assets/images/horcrux.jpg"
+},
+{	word:"elder wand",
+	image:"assets/images/harry.jpg"
+}, 
+{	word:"alohomora",
+	image:"assets/images/harry.jpg"
+}, 
+{	word:"avada kedavra",
+	image:"assets/images/harry.jpg"
+}];
 // console.log(words);
 
 var index = Math.floor(Math.random()*words.length);
-var word = words[index];
+var word = words[index].word;
+var image = words[index].image;
 
 console.log('word: ', word);
 
@@ -51,7 +88,7 @@ for (var i=0; i<word.length; i++){
 	}
 }
 //keeps track of how many letters are left to be guessed
-var remainingLetters=word.length;
+// var remainingLetters=word.length;
 
 
 //Trying to use document.getElementByID to call the currentWord and then should do a fn to document.create...something method
@@ -110,9 +147,13 @@ to replace the letters*/
 			 		}
 			 		
 			 		if(answer.indexOf("-") === -1) {
-			 			setTimeout(function(){
+			 			
 			 			winPoints++;
 			 			document.getElementById("winPoints").innerHTML=winPoints;
+			 			
+			 			document.getElementById("myImg").src = image;
+
+			 			setTimeout(function(){  
 			 			  keepPlaying = confirm("Congrats You Won: Do you want to keep playing? ");
 			 			 	if(keepPlaying){
 							reset(true);
@@ -128,10 +169,11 @@ to replace the letters*/
 			 			guesses.push(letter);
 			 			document.getElementById("lettersGuessed").innerHTML=guesses;
 			 			if (guessesRemaining===0) {
+			 				setTimeout(function(){ 	
 			 				keepPlaying = confirm("You lose: Want to try again?");
 			 					if(keepPlaying){
 									reset(false);
-			 					}
+			 					}}, 2000);
 			 			}
 			 		}	
 				}
@@ -148,7 +190,7 @@ function reset(didWin) {
 console.log(didWin);
 
 index = Math.floor(Math.random()*words.length);
-word = words[index];
+word = words[index].word;
 console.log("word:", word);
 
 

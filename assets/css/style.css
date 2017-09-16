@@ -7,3 +7,11 @@ div {
 	letter-spacing: 20px;
 	font-size: 20px;
 }
+
+#img-container {
+	width:400px;
+	height:300px;
+	align-items: center;
+	margin-left:15%;
+
+}
