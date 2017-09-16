@@ -55,16 +55,16 @@ var words = [
 	image:"assets/images/voldemort.gif"
 }, 
 {	word:"muggles",
-	image:"assets/images/harry.jpg"
+	image:"assets/images/dursleys.jpg"
 }, 
 {	word:"horcrux",
 	image:"assets/images/horcrux.jpg"
 },
 {	word:"elder wand",
-	image:"assets/images/harry.jpg"
+	image:"assets/images/elderwand.jpg"
 }, 
 {	word:"alohomora",
-	image:"assets/images/harry.jpg"
+	image:"assets/images/alohomora.png"
 }, 
 {	word:"avada kedavra",
 	image:"assets/images/harry.jpg"
