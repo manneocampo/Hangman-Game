@@ -2,6 +2,12 @@
 	border: 1px solid black;
 }*/
 
+/*If find a bigger picture with better quality can use code below to stretch out image but
+right now the repeated background isn't as fuzzy so keeping it*/
+/*body {
+	background-repeat: no-repeat;
+	background-size:cover;
+}*/
 
 #heading {
 	text-align: center;

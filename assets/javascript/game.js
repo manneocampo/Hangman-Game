@@ -49,7 +49,7 @@ var words = [
 	image:"assets/images/draco.jpg"
 },
 {	word:"dumbledore",
-	image:"assets/images/harry.jpg"
+	image:"assets/images/dumbledore.jpg"
 },
 {	word:"voldemort",
 	image:"assets/images/voldemort.gif"
@@ -87,9 +87,6 @@ for (var i=0; i<word.length; i++){
 		answer.push("-");
 	}
 }
-//keeps track of how many letters are left to be guessed
-// var remainingLetters=word.length;
-
 
 //Trying to use document.getElementByID to call the currentWord and then should do a fn to document.create...something method
 document.getElementById('currentWord').innerHTML= answer.join("");
